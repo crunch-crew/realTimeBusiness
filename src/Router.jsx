@@ -13,7 +13,6 @@ var routes = (
   <Route name="app" path="/" handler={App}> 
     <Route  path="recentOrders" handler={RecentOrders} />
     <Route path="createOrder" handler={CreateOrder} />
-    <NotFoundRoute handler={NotFound} />
   </Route>
 );
 
