@@ -21,7 +21,7 @@ var CreateOrder = React.createClass({
     var product = "FireDucky";
     var user = "DuckMafiaOG";
     var price = 189;
-    var qty = this.refs.qty.getDOMNode().value;
+    var qty = React.findDOMNode(this.refs.qty).value;
     var qtr = month > 6 ? (month < 10 ? 3 : 4) : (month > 3 ? 2 : 1);
     this.setState({order_id: order_id});
     this.props.onOrderSubmit({

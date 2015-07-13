@@ -3,6 +3,7 @@ var Order = require('./Order');
 var RecentOrders = React.createClass({
   render: function() {
     var orders = this.props.data.orders;
+    console.log("Inside of Recent Orders", orders);
     var orderList = orders.sort(function(a,b) {
         return b.order_id - a.order_id;
     })

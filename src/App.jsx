@@ -6,14 +6,7 @@ var Link = Router.Link;
 var App = React.createClass({
   getInitialState: function() {
     return {
-      orders: [
-      {order_id: 1, product: "Ducky on Fire", qty: 3, price: 189, user: "user1"},
-      {order_id: 2, product: "Ducky on Fire", qty: 2, price: 189, user: "user2"},
-      {order_id: 3, product: "Ducky on Fire", qty: 1, price: 189, user: "user3"},
-      {order_id: 4, product: "Ducky on Fire", qty: 1, price: 189, user: "user5"},
-      {order_id: 5, product: "Ducky on Fire", qty: 1, price: 189, user: "user1"},
-      {order_id: 6, product: "Ducky on Fire", qty: 1, price: 189, user: "user1"}
-      ]
+      orders: []
     }
   },
   handleOrderSubmit: function(order) {
@@ -28,13 +21,14 @@ var App = React.createClass({
     that.combustRef = new Combust({serverAddress: serverAddress}, function() {
       that.combustRef.on("child_added", function(dataSnapshot) {
         if (dataSnapshot.success) {
-          console.log("First call to db, dataSnapshot =", dataSnapshot);
           orders = orders.concat(dataSnapshot.data);
-          console.log("First call to db, orders look like\n\n\n", orders);
           context.setState({orders: orders});
         } else {
+          console.log('What does orders look like as orders progess', orders);
           newOrder = dataSnapshot._storage;
-          context.state.orders.concat(newOrder);
+          orders.push(newOrder);
+          context.setState({orders: orders});
+          console.log("What does state look like after setState:", context.state);
         }
       });
     });
