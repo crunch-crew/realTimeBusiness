@@ -6,12 +6,17 @@ var Link = Router.Link;
 var App = React.createClass({
   getInitialState: function() {
     return {
-      orders: []
+      orders: [],
+      completed: []
     }
   },
   handleOrderSubmit: function(order) {
+    order.key = this.state.orders.length;
     console.log("order was received", order);
     this.combustRef.push(order);
+  },
+  completeOrder: function(completeOrder) {
+    console.log("order was fulfilled", order);
   },
   componentWillMount: function() {
     var context = this;
@@ -38,10 +43,11 @@ var App = React.createClass({
       <div className="app">
         <h1> CombustDuckInc </h1> 
         <ul className="site-navigation">
-          <li> <Link to="/recentOrders" > Recent Orders </Link> </li>
           <li> <Link to="/createOrder" >  Create Order </Link> </li>
+          <li> <Link to="/recentOrders" > Recent Orders </Link> </li>
+          <li> <Link to="/ordersComplete"> Orders Fulfilled </Link> </li>
         </ul>
-        <RouteHandler data={this.state} onOrderSubmit={this.handleOrderSubmit} />
+        <RouteHandler data={this.state} onOrderSubmit={this.handleOrderSubmit} onOrderComplete={this.completeOrder}/>
       </div>
     );
   }  

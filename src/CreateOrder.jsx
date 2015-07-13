@@ -1,14 +1,7 @@
   
 var CreateOrder = React.createClass({
-  getInitialState: function() {
-    return {
-      order_id: 15
-    }
-  },
   handleClick: function(e) {
-    // order id will probably be part of this components state
     e.preventDefault();
-    var order_id = ++ this.state.order_id;
     var d = new Date()
     var date = d.getDate();
     var month = d.getMonth() + 1;
@@ -23,9 +16,7 @@ var CreateOrder = React.createClass({
     var price = 189;
     var qty = React.findDOMNode(this.refs.qty).value;
     var qtr = month > 6 ? (month < 10 ? 3 : 4) : (month > 3 ? 2 : 1);
-    this.setState({order_id: order_id});
     this.props.onOrderSubmit({
-      order_id: order_id, 
       product: product, 
       user: user, 
       price: price, 
@@ -33,9 +24,9 @@ var CreateOrder = React.createClass({
       purchaseTime: purchaseTime, 
       qty: qty
     });
-    console.log("Order was created", order_id, product, user, price, purchaseDate, purchaseTime, qty);
   },
   render: function() {
+    console.log("inside of Create Order and props looks like", this.props);
     return (
     <div id="create-order">
       <h2>FireDucky Order Form</h2>
