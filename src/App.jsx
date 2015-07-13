@@ -17,30 +17,35 @@ var App = React.createClass({
     }
   },
   handleOrderSubmit: function(order) {
+    console.log("order was received", order);
     this.combustRef.push(order);
   },
   componentWillMount: function() {
     var context = this;
     var orders = this.state.orders;
     var that = this;
+    var newOrder;
     that.combustRef = new Combust({serverAddress: serverAddress}, function() {
       that.combustRef.on("child_added", function(dataSnapshot) {
-        orders.push(dataSnapshot);
-        context.setState({orders: orders});
+        if (dataSnapshot.success) {
+          console.log("First call to db, dataSnapshot =", dataSnapshot);
+          orders = orders.concat(dataSnapshot.data);
+          console.log("First call to db, orders look like\n\n\n", orders);
+          context.setState({orders: orders});
+        } else {
+          newOrder = dataSnapshot._storage;
+          context.state.orders.concat(newOrder);
+        }
       });
     });
   },
-
-  componentWillUnmount: function() {
-  },
-
   render: function() {
     return (
       <div className="app">
         <h1> CombustDuckInc </h1> 
         <ul className="site-navigation">
-          <li> <Link to="/recentOrders" params={this.state} > Recent Orders </Link> </li>
-          <li> <Link to="/createOrder" params={{orderSubmit: this.handleOrderSubmit}} >  Create Order </Link> </li>
+          <li> <Link to="/recentOrders" > Recent Orders </Link> </li>
+          <li> <Link to="/createOrder" >  Create Order </Link> </li>
         </ul>
         <RouteHandler data={this.state} onOrderSubmit={this.handleOrderSubmit} />
       </div>

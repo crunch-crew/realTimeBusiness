@@ -1,4 +1,4 @@
-
+  
 var CreateOrder = React.createClass({
   getInitialState: function() {
     return {
@@ -33,7 +33,7 @@ var CreateOrder = React.createClass({
       purchaseTime: purchaseTime, 
       qty: qty
     });
-    console.log("Inside of Create Order", this.props)
+    console.log("Order was created", order_id, product, user, price, purchaseDate, purchaseTime, qty);
   },
   render: function() {
     return (
@@ -44,6 +44,7 @@ var CreateOrder = React.createClass({
         <ul className="sale-info">
           <li>List Price: $200</li>
           <li>On Sale: $189</li>
+          <img src="../client/assets/fireDucky.jpg" className="sale-img"></img>
           Qty: <input type="text" ref="qty" /><button type="submit" onClick={this.handleClick}> Purchase</button>
         </ul>
       </div>

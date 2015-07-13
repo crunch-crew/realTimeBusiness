@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'client/js/scripts.js' : 'src/Router.jsx'
+          'client/js/scripts.js' : ['src/Router.jsx', 'package.json']
         }
       }
     }
