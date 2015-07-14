@@ -14,7 +14,7 @@ var RecentOrders = React.createClass({
         <Order complete={context.complete} order_id={order.order_id} product={order.product} qty={order.qty} price={order.price} user={order.user}></Order> 
       )
     })
-    .slice(0, 25);
+    .slice(0, 50);
     
     return (
     <div className id="order-list">
