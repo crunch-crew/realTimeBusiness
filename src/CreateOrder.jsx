@@ -40,13 +40,13 @@ var CreateOrder = React.createClass({
     <div id="create-order">
       <h2>FireDucky Order Form</h2>
       <h4>Description: Fire breathing ducky born in the heart of San Francisco, MakerSquare, guaranteed to increase your street credit and bring your game to the Crunch Crew level</h4>
+      <img src="../client/assets/fireDucky.jpg" className="sale-img"></img>
       <div id="center-banner">
         <ul className="sale-info">
           <li>List Price: $200</li>
           <li>On Sale: $189</li>
-          <img src="../client/assets/fireDucky.jpg" className="sale-img"></img>
-          Qty: <input type="text" id="qty" ref="qty" /><button type="submit" onClick={this.handleClick}> Purchase</button>
         </ul>
+          Qty: <input type="text" id="qty" ref="qty" /><button type="submit" onClick={this.handleClick}> Purchase</button>
       </div>
     </div>
     );

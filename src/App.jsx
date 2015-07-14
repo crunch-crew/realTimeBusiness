@@ -36,11 +36,13 @@ var App = React.createClass({
   render: function() {
     return (
       <div className="app">
-        <h1> CombustDuckInc </h1> 
-        <ul className="site-navigation">
-          <li> <Link to="/recentOrders" > Recent Orders </Link> </li>
-          <li> <Link to="/createOrder" >  Create Order </Link> </li>
-        </ul>
+        <div className="topbar">
+          <h1> CombustDuckInc </h1> 
+          <ul className="site-navigation">
+            <li> <Link to="/recentOrders" > Recent Orders </Link> </li>
+            <li> <Link to="/createOrder" >  Create Order </Link> </li>
+          </ul>
+        </div>
         <RouteHandler data={this.state} onOrderSubmit={this.handleOrderSubmit} />
       </div>
     );

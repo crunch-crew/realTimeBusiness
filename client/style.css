@@ -14,8 +14,9 @@ a {
 }
 
 .CSSTableGenerator {
-    margin:0px;padding:0px;
-    width:100%;
+    margin-left: 32px;
+    padding:0px;
+    width:80%;
     box-shadow: 10px 10px 5px #888888;
     border:1px solid #000000;
     
@@ -107,4 +108,37 @@ a {
 }
 .CSSTableGenerator tr:first-child td:last-child{
     border-width:0px 0px 1px 1px;
+}
+
+li {
+  list-style-type: none;
+  font-size: x-large;
+}
+
+img {
+  max-height: 300px;
+}
+h4 {
+  width: 80%;
+}
+h2 {
+    margin-left: 32px;
+}
+
+h1 {
+    margin-left: 31px;
+}
+div#create-order {
+  margin-left: 35px;
+  width: 90%;
+}
+
+div#create-order h2{
+    margin-left: 0;
+}
+
+div#center-banner {
+  float: right;
+  width: 60%;
+  margin-top: 10%
 }

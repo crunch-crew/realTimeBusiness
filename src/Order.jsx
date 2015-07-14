@@ -5,7 +5,7 @@ var Order = React.createClass({
   render: function() {
     return (    
     <tr>              
-      <td > {this.props.product} </td> <td> {this.props.qty} </td> <td> {this.props.price} </td> <td> {this.props.user} </td>
+      <td> {this.props.order_id} </td> <td > {this.props.product} </td> <td> {this.props.qty} </td> <td> {this.props.price} </td> <td> {this.props.user} </td>
     </tr>               
     );
   }
