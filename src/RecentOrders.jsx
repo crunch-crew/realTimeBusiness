@@ -8,16 +8,23 @@ var RecentOrders = React.createClass({
         return b.order_id - a.order_id;
     })
     .map(function(order) {
-      return (   
+      return (  
         <Order product={order.product} qty={order.qty} price={order.price} user={order.user}></Order> 
       );
     })
-    .slice(0, 10);
+    .slice(0, 25);
     
     return (
     <div className id="order-list">
-    <h2> Recent Orders </h2>    
-      {orderList}
+      <h2> Recent Orders </h2>   
+      <div className="CSSTableGenerator" >
+        <table >
+          <tr>
+            <td> Product </td> <td> QTY</td> <td> Price </td> <td> User </td>
+          </tr> 
+          {orderList}
+        </table>
+      </div>
     </div>
     );
   }

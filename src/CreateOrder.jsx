@@ -21,7 +21,7 @@ var CreateOrder = React.createClass({
     var product = "FireDucky";
     var user = "DuckMafiaOG";
     var price = 189;
-    var qty = React.findDOMNode(this.refs.qty).value;
+    var qty = React.findDOMNode(this.refs.qty).value || 1;
     var qtr = month > 6 ? (month < 10 ? 3 : 4) : (month > 3 ? 2 : 1);
     this.setState({order_id: order_id});
     this.props.onOrderSubmit({
@@ -33,7 +33,7 @@ var CreateOrder = React.createClass({
       purchaseTime: purchaseTime, 
       qty: qty
     });
-    console.log("Order was created", order_id, product, user, price, purchaseDate, purchaseTime, qty);
+
   },
   render: function() {
     return (
@@ -45,7 +45,7 @@ var CreateOrder = React.createClass({
           <li>List Price: $200</li>
           <li>On Sale: $189</li>
           <img src="../client/assets/fireDucky.jpg" className="sale-img"></img>
-          Qty: <input type="text" ref="qty" /><button type="submit" onClick={this.handleClick}> Purchase</button>
+          Qty: <input type="text" id="qty" ref="qty" /><button type="submit" onClick={this.handleClick}> Purchase</button>
         </ul>
       </div>
     </div>
