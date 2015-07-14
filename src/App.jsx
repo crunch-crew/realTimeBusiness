@@ -14,8 +14,12 @@ var App = React.createClass({
     console.log("order was received", order);
     this.combustRef.push(order);
   },
-  completeOrder: function(completeOrder) {
-    console.log("order was fulfilled");
+  completeOrder: function(completedOrder) {
+    var ordersCompleted = this.state.completed.slice();
+    ordersCompleted.push(completedOrder);
+    var orders = this.state.orders.slice();
+    orders.splice(completedOrder.order_id, 1);
+    this.setState({orders: orders, completed: ordersCompleted});
   },
   componentWillMount: function() {
     var context = this;

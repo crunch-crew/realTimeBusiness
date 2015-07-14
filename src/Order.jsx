@@ -4,10 +4,10 @@ var Eventful = require('eventful-react');
 var Order = React.createClass({
   finishOrder: function(e) {
     e.preventDefault();
+    this.props.complete(this.props);
     console.log("What this looks like = ", this.props);
   },
   render: function() {
-    console.log("Inside of Orders props looks like = ", this.props)
     return (
       <a className="clickable">
         <div className="order" onClick={this.finishOrder} >
