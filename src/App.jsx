@@ -11,12 +11,11 @@ var App = React.createClass({
     }
   },
   handleOrderSubmit: function(order) {
-    order.key = this.state.orders.length;
     console.log("order was received", order);
     this.combustRef.push(order);
   },
   completeOrder: function(completeOrder) {
-    console.log("order was fulfilled", order);
+    console.log("order was fulfilled");
   },
   componentWillMount: function() {
     var context = this;
